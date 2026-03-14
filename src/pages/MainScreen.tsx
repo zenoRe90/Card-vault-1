@@ -20,7 +20,7 @@ export default function MainScreen() {
   const [showAdvancedSearch, setShowAdvancedSearch] = useState(false);
   const [selectedSearchTags, setSelectedSearchTags] = useState<Set<string>>(new Set());
   const [sortBy, setSortBy] = useState<'dateDesc' | 'dateAsc' | 'nameAsc' | 'nameDesc' | 'editedDesc'>('dateDesc'); /* <-- Updated */
-  const [showDates, setShowDates] = useState(false); /* <-- Add this line */
+  const [showDates, setShowDates] = useState(false);
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
@@ -88,7 +88,7 @@ export default function MainScreen() {
 
       switch (sortBy) {
         case 'editedDesc': 
-          return (b.updatedAt || b.createdAt) - (a.updatedAt || a.createdAt); /* <-- ADD THIS LINE */
+          return (b.updatedAt || b.createdAt) - (a.updatedAt || a.createdAt);
         case 'dateDesc': return b.createdAt - a.createdAt;
         case 'dateAsc': return a.createdAt - b.createdAt;
         case 'nameAsc': return a.name.localeCompare(b.name);
@@ -282,7 +282,7 @@ export default function MainScreen() {
                       key={card.id} 
                       card={card} 
                       tags={tags}
-                      showDates={showDates} {/* <-- ADD THIS LINE TO BOTH */}
+                      showDates={showDates}
                       onTogglePin={handleTogglePinSingle}
                       selected={selectionMode ? selectedCards.has(card.id) : undefined}
                       onSelect={selectionMode ? toggleSelection : undefined}
@@ -313,7 +313,7 @@ export default function MainScreen() {
                       key={card.id} 
                       card={card} 
                       tags={tags}
-                      showDates={showDates} {/* <-- ADD THIS LINE TO BOTH */}
+                      showDates={showDates}
                       onTogglePin={handleTogglePinSingle}
                       selected={selectionMode ? selectedCards.has(card.id) : undefined}
                       onSelect={selectionMode ? toggleSelection : undefined}
